@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Rowail for LUMS Batch Representative 2026. Vote for real change.">
+  <title>Rowail Qaiser — Batch Rep '26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:#0a0a0f;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* Animated gradient background */
+    .bg-glow {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      z-index:0; pointer-events:none; overflow:hidden;
+    }
+    .bg-glow .orb {
+      position:absolute; border-radius:50%; filter:blur(100px); opacity:0.4;
+    }
+    .bg-glow .orb-1 {
+      width:400px; height:400px;
+      background:radial-gradient(circle,#6c3baa 0%,transparent 70%);
+      top:-10%; left:-10%;
+      animation:float1 20s ease-in-out infinite alternate;
+    }
+    .bg-glow .orb-2 {
+      width:350px; height:350px;
+      background:radial-gradient(circle,#2563eb 0%,transparent 70%);
+      bottom:-5%; right:-10%;
+      animation:float2 25s ease-in-out infinite alternate;
+    }
+    .bg-glow .orb-3 {
+      width:300px; height:300px;
+      background:radial-gradient(circle,#059669 0%,transparent 70%);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      animation:float3 18s ease-in-out infinite alternate;
+    }
+    @keyframes float1 { 0%{transform:translate(0,0)} 100%{transform:translate(80px,60px)} }
+    @keyframes float2 { 0%{transform:translate(0,0)} 100%{transform:translate(-60px,-80px)} }
+    @keyframes float3 { 0%{transform:translate(-50%,-50%) scale(1)} 100%{transform:translate(-30%,-40%) scale(1.2)} }
+
+    /* Lightning effects */
+    .lightning-container {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      z-index:1; pointer-events:none; overflow:hidden;
+    }
+    .lightning-bolt {
+      position:absolute;
+      width:3px;
+      background:linear-gradient(to bottom, transparent, rgba(200,180,255,0.9), rgba(255,255,255,0.95), rgba(200,180,255,0.6), transparent);
+      opacity:0;
+      filter:blur(1px);
+      box-shadow:0 0 8px rgba(180,160,255,0.6), 0 0 20px rgba(180,160,255,0.3);
+    }
+    .lightning-bolt.bolt-1 {
+      height:120px; top:5%; left:15%;
+      transform:rotate(12deg);
+      animation:lightningFlash 6s 1s infinite;
+    }
+    .lightning-bolt.bolt-2 {
+      height:90px; top:20%; right:10%;
+      transform:rotate(-8deg);
+      animation:lightningFlash 8s 3.5s infinite;
+    }
+    .lightning-bolt.bolt-3 {
+      height:150px; top:40%; left:8%;
+      transform:rotate(5deg);
+      animation:lightningFlash 7s 5s infinite;
+    }
+    .lightning-bolt.bolt-4 {
+      height:70px; top:60%; right:18%;
+      transform:rotate(-15deg);
+      animation:lightningFlash 9s 2s infinite;
+    }
+    .lightning-branch {
+      position:absolute;
+      width:2px; height:40px;
+      background:linear-gradient(to bottom, rgba(200,180,255,0.7), transparent);
+      opacity:0; filter:blur(1px);
+    }
+    .bolt-1 .lightning-branch { top:30px; left:2px; transform:rotate(30deg); transform-origin:top left; animation:lightningFlash 6s 1.05s infinite; }
+    .bolt-2 .lightning-branch { top:25px; right:2px; transform:rotate(-25deg); transform-origin:top right; animation:lightningFlash 8s 3.55s infinite; }
+    .bolt-3 .lightning-branch { top:50px; left:2px; transform:rotate(35deg); transform-origin:top left; animation:lightningFlash 7s 5.05s infinite; }
+    .bolt-4 .lightning-branch { top:20px; right:2px; transform:rotate(-20deg); transform-origin:top right; animation:lightningFlash 9s 2.05s infinite; }
+    @keyframes lightningFlash {
+      0%,100% { opacity:0; }
+      1% { opacity:1; }
+      2% { opacity:0.2; }
+      3% { opacity:0.9; }
+      4% { opacity:0; }
+      5% { opacity:0.7; }
+      6% { opacity:0; }
+    }
+    /* Screen flash on lightning */
+    .lightning-flash-screen {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      z-index:1; pointer-events:none;
+      background:radial-gradient(ellipse at 50% 30%, rgba(200,180,255,0.08), transparent 70%);
+      opacity:0;
+      animation:screenFlash 7s 1s infinite;
+    }
+    @keyframes screenFlash {
+      0%,100% { opacity:0; }
+      1% { opacity:1; }
+      2% { opacity:0; }
+      3% { opacity:0.6; }
+      4% { opacity:0; }
+    }
+
+    /* Noise overlay */
+    .noise {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      z-index:1; pointer-events:none; opacity:0.03;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Main container */
+    .app {
+      position:relative; z-index:2;
+      max-width:480px; margin:0 auto;
+      padding:40px 20px 60px;
+      min-height:100vh;
+      display:flex; flex-direction:column; align-items:center;
+    }
+
+    /* Profile section */
+    .profile { text-align:center; margin-bottom:20px; }
+
+    /* روشنی Campaign Name */
+    .roshni-section {
+      text-align:center;
+      margin-bottom:36px;
+    }
+    .roshni-text {
+      font-family:'Amiri',serif;
+      font-size:4.5rem;
+      font-weight:700;
+      background:linear-gradient(135deg, #fde68a 0%, #fbbf24 25%, #f59e0b 50%, #fde68a 75%, #fffbeb 100%);
+      background-size:200% 200%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:goldShimmer 3s ease infinite;
+      line-height:1.2;
+      filter:drop-shadow(0 0 20px rgba(251,191,36,0.3));
+      direction:rtl;
+    }
+    @keyframes goldShimmer {
+      0% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100% { background-position:0% 50%; }
+    }
+    .avatar-ring {
+      width:140px; height:140px;
+      border-radius:50%;
+      padding:4px;
+      background:linear-gradient(135deg,#6c3baa,#2563eb,#059669,#6c3baa);
+      background-size:300% 300%;
+      animation:ringShift 4s ease infinite;
+      margin:0 auto 20px;
+      box-shadow:0 0 40px rgba(108,59,170,0.3), 0 0 80px rgba(37,99,235,0.15);
+    }
+    @keyframes ringShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    .avatar-ring img {
+      width:100%; height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center top;
+      border:3px solid #0a0a0f;
+      display:block;
+    }
+    .profile h1 {
+      font-family:'Playfair Display',serif;
+      font-size:2rem;
+      font-weight:600;
+      margin-bottom:6px;
+      background:linear-gradient(135deg,#fff 0%,#c4b5fd 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .profile .tagline {
+      font-size:0.85rem;
+      color:rgba(255,255,255,0.5);
+      text-transform:uppercase;
+      letter-spacing:0.15em;
+      font-weight:500;
+    }
+    .profile .subtitle {
+      margin-top:12px;
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+      font-size:1.05rem;
+      color:rgba(255,255,255,0.7);
+      line-height:1.5;
+    }
+
+    /* Link buttons */
+    .links { width:100%; display:flex; flex-direction:column; gap:14px; margin-bottom:40px; }
+    .link-btn {
+      display:flex; align-items:center; gap:16px;
+      width:100%;
+      padding:18px 24px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      color:#fff;
+      text-decoration:none;
+      font-size:1rem;
+      font-weight:500;
+      cursor:pointer;
+      text-align:left;
+      transition:all 0.35s cubic-bezier(0.23,1,0.32,1);
+      position:relative;
+      overflow:hidden;
+    }
+    .link-btn::before {
+      content:'';
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      background:linear-gradient(135deg,rgba(108,59,170,0.1),rgba(37,99,235,0.1));
+      opacity:0;
+      transition:opacity 0.35s ease;
+    }
+    .link-btn:hover::before, .link-btn:active::before { opacity:1; }
+    .link-btn:hover, .link-btn:active {
+      transform:translateY(-3px) scale(1.01);
+      border-color:rgba(108,59,170,0.4);
+      box-shadow:0 8px 30px rgba(108,59,170,0.15), 0 0 0 1px rgba(108,59,170,0.1);
+    }
+    .link-icon {
+      width:44px; height:44px;
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+      font-size:1.3rem;
+    }
+    .link-icon.manifesto { background:linear-gradient(135deg,#6c3baa,#8b5cf6); }
+    .link-icon.debate { background:linear-gradient(135deg,#2563eb,#3b82f6); }
+    .link-icon.contact { background:linear-gradient(135deg,#059669,#10b981); }
+    .link-icon.about { background:linear-gradient(135deg,#d97706,#f59e0b); }
+    .link-text { flex:1; }
+    .link-text span { display:block; font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:2px; font-weight:400; }
+    .link-arrow {
+      color:rgba(255,255,255,0.3);
+      transition:transform 0.3s ease, color 0.3s ease;
+    }
+    .link-btn:hover .link-arrow { transform:translateX(4px); color:rgba(255,255,255,0.7); }
+
+    /* Footer */
+    .site-footer {
+      text-align:center;
+      margin-top:auto;
+      padding-top:20px;
+    }
+    .site-footer .brand {
+      font-family:'Playfair Display',serif;
+      font-size:0.9rem;
+      color:rgba(255,255,255,0.3);
+      margin-bottom:8px;
+    }
+    .site-footer .copy {
+      font-size:0.7rem;
+      color:rgba(255,255,255,0.15);
+      letter-spacing:0.05em;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      z-index:100;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none;
+      transition:opacity 0.4s ease;
+      padding:20px;
+    }
+    .modal-overlay.active { opacity:1; pointer-events:auto; }
+    .modal {
+      background:linear-gradient(145deg,#151520,#1a1a2e);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:40px 28px;
+      max-width:440px;
+      width:100%;
+      text-align:center;
+      transform:translateY(20px) scale(0.95);
+      transition:transform 0.4s cubic-bezier(0.23,1,0.32,1);
+      position:relative;
+      max-height:90vh;
+      overflow-y:auto;
+    }
+    .modal-overlay.active .modal { transform:translateY(0) scale(1); }
+    .modal-close {
+      position:absolute; top:16px; right:16px;
+      width:36px; height:36px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      color:#fff;
+      font-size:1.2rem;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:all 0.3s ease;
+    }
+    .modal-close:hover { background:rgba(255,255,255,0.12); }
+
+    /* Coming Soon modal */
+    .coming-soon-icon {
+      font-size:3.5rem;
+      margin-bottom:16px;
+      animation:pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+    .modal h2 {
+      font-family:'Playfair Display',serif;
+      font-size:1.6rem;
+      margin-bottom:10px;
+      background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .modal p { color:rgba(255,255,255,0.5); font-size:0.9rem; line-height:1.6; }
+    .modal .sparkle-row {
+      display:flex; justify-content:center; gap:8px;
+      margin-top:20px;
+    }
+    .sparkle-dot {
+      width:6px; height:6px; border-radius:50%;
+      background:#3b82f6;
+      animation:sparkle 1.5s ease-in-out infinite;
+    }
+    .sparkle-dot:nth-child(2) { animation-delay:0.2s; background:#8b5cf6; }
+    .sparkle-dot:nth-child(3) { animation-delay:0.4s; background:#6c3baa; }
+    @keyframes sparkle { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.3)} }
+
+    /* Contact modal */
+    .contact-links { display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+    .contact-btn {
+      display:flex; align-items:center; gap:14px;
+      padding:16px 20px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#fff;
+      text-decoration:none;
+      font-size:0.95rem;
+      font-weight:500;
+      transition:all 0.3s ease;
+    }
+    .contact-btn:hover {
+      background:rgba(255,255,255,0.1);
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,0.15);
+    }
+    .contact-btn .c-icon {
+      width:40px; height:40px;
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; flex-shrink:0;
+    }
+    .contact-btn .c-icon.wa { background:linear-gradient(135deg,#059669,#25d366); }
+    .contact-btn .c-icon.ig { background:linear-gradient(135deg,#e1306c,#833ab4,#fd1d1d); }
+
+    /* About modal */
+    .about-content {
+      text-align:left;
+      margin-top:20px;
+    }
+    .about-content p {
+      margin-bottom:14px;
+      font-size:0.88rem;
+      line-height:1.75;
+      color:rgba(255,255,255,0.6);
+    }
+    .about-content p:first-child {
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
+    }
+    .about-content p:last-child {
+      color:#c4b5fd;
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+      font-size:1rem;
+      text-align:center;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Entrance animations */
+    .fade-up {
+      opacity:0; transform:translateY(24px);
+      animation:fadeUp 0.7s cubic-bezier(0.23,1,0.32,1) forwards;
+    }
+    .fade-up:nth-child(1) { animation-delay:0.1s; }
+    .fade-up:nth-child(2) { animation-delay:0.2s; }
+    .fade-up:nth-child(3) { animation-delay:0.3s; }
+    .fade-up:nth-child(4) { animation-delay:0.4s; }
+    @keyframes fadeUp { to{opacity:1;transform:translateY(0)} }
+    .profile { opacity:0; transform:translateY(20px); animation:fadeUp 0.8s 0s cubic-bezier(0.23,1,0.32,1) forwards; }
+
+    /* Desktop adjustments */
+    @media (min-width:600px) {
+      .app { padding:60px 20px 80px; max-width:520px; }
+      .avatar-ring { width:160px; height:160px; }
+      .profile h1 { font-size:2.4rem; }
+      .link-btn { padding:20px 28px; font-size:1.05rem; }
+      .link-icon { width:48px; height:48px; }
+    }
+    @media (min-width:1024px) {
+      .app { padding:80px 20px 100px; }
+      .link-btn:hover { transform:translateY(-4px) scale(1.02); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="noise"></div>
+
+  <!-- Lightning -->
+  <div class="lightning-container">
+    <div class="lightning-bolt bolt-1"><div class="lightning-branch"></div></div>
+    <div class="lightning-bolt bolt-2"><div class="lightning-branch"></div></div>
+    <div class="lightning-bolt bolt-3"><div class="lightning-branch"></div></div>
+    <div class="lightning-bolt bolt-4"><div class="lightning-branch"></div></div>
+  </div>
+  <div class="lightning-flash-screen"></div>
+
+  <div class="app">
+    <!-- Profile -->
+    <div class="profile">
+      <div class="avatar-ring">
+        <img src="profile_picture.jpeg" alt="Rowail">
+      </div>
+      <h1>Rowail Qaiser</h1>
+      <div class="tagline">Lums Non-SSE Batch Representative 2026 Candidate</div>
+      <div class="subtitle">تغیّر، فکر، انقلاب</div>
+    </div>
+
+    <!-- روشنی Campaign Brand -->
+    <div class="roshni-section fade-up">
+      <div class="roshni-text">روشنی</div>
+    </div>
+
+    <!-- Links -->
+    <div class="links">
+      <a href="https://drive.google.com/file/d/1QnnLVq2zkWpSdGHbD7m6cfoqESb2XR2e/view?usp=drivesdk" target="_blank" class="link-btn fade-up" id="btn-manifesto">
+        <div class="link-icon manifesto">📄</div>
+        <div class="link-text">Manifesto<span>Read the full vision</span></div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <button class="link-btn fade-up" id="btn-debate" onclick="openModal('debate')">
+        <div class="link-icon debate">🎙️</div>
+        <div class="link-text">Candidate Oration<span>Stay tuned for updates</span></div>
+        <div class="link-arrow">→</div>
+      </button>
+
+      <button class="link-btn fade-up" id="btn-contact" onclick="openModal('contact')">
+        <div class="link-icon contact">💬</div>
+        <div class="link-text">Contact<span>WhatsApp & Instagram</span></div>
+        <div class="link-arrow">→</div>
+      </button>
+
+      <button class="link-btn fade-up" id="btn-about" onclick="openModal('about')">
+        <div class="link-icon about">👤</div>
+        <div class="link-text">About Me<span>Get to know Rowail</span></div>
+        <div class="link-arrow">→</div>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="site-footer">
+      <div class="brand">Rowail Qaiser — Batch Rep '26</div>
+      <div class="copy">LUMS · Lahore University of Management Sciences</div>
+    </div>
+  </div>
+
+  <!-- Debate Modal -->
+  <div class="modal-overlay" id="modal-debate">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('debate')">✕</button>
+      <div class="coming-soon-icon">🎙️</div>
+      <h2>Coming Soon</h2>
+      <p>The candidate oration video will be available here shortly. Stay tuned for an exciting discussion!</p>
+      <div class="sparkle-row">
+        <div class="sparkle-dot"></div>
+        <div class="sparkle-dot"></div>
+        <div class="sparkle-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="modal-contact">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('contact')">✕</button>
+      <div style="font-size:2.5rem;margin-bottom:12px;">💬</div>
+      <h2>Let's Connect</h2>
+      <p>Reach out, share your ideas, or just say hi!</p>
+      <div class="contact-links">
+        <a href="https://chat.whatsapp.com/DmNVoZdQitnDR1ER9pjHLs?mode=gi_t" target="_blank" class="contact-btn">
+          <div class="c-icon wa">💬</div>
+          <div>Join WhatsApp Group<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Community discussions</span></div>
+        </a>
+        <a href="https://www.instagram.com/rowailforbatchrep?igsh=b25wNnp1dHlqd2Q2" target="_blank" class="contact-btn">
+          <div class="c-icon ig">📷</div>
+          <div>Follow on Instagram<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">@rowailforbatchrep</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div class="modal-overlay" id="modal-about">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('about')">✕</button>
+      <div style="font-size:2.5rem;margin-bottom:12px;">👤</div>
+      <h2>About Rowail Qaiser</h2>
+      <div class="about-content">
+        <p>I'm not someone who always had everything figured out.</p>
+        <p>Like most of us, I came into university trying to find my place, between lecture halls, late-night conversations, and the quiet moments where you start questioning how things work around you.</p>
+        <p>And the more I paid attention, the more I realized something: the student experience isn't just about what we're given, it's about what we're willing to question, improve, and stand up for.</p>
+        <p>I'm someone who notices things, the small frustrations we joke about but never fix, the ideas that get shut down too quickly, the voices that don't get heard as much as they should.</p>
+        <p>That instinct to not just notice, but step in, has shaped what I've done, from working as an Associate Consultant with the LUMS Consultancy Group and the Government of Punjab, to co-founding The Mind Hub, and contributing to student council, research, and environmental initiatives.</p>
+        <p>Before university, that same drive pushed me further, representing Pakistan on the international stage through the KGL Olympiad, while also working with NGOs and community projects that focused on real, on-ground impact.</p>
+        <p>I don't believe change comes from big promises. It comes from people who care enough to speak, and stay consistent when it matters.</p>
+        <p>That's why I'm here, not just as a candidate, but as someone choosing to step forward instead of standing by.</p>
+        <p>"Things don't improve on their own — people make them better."</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => {
+          m.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
