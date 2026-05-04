@@ -538,6 +538,12 @@
         <div class="link-text">On the Run<span>Moments from the campaign trail</span></div>
         <div class="link-arrow">→</div>
       </button>
+
+      <button class="link-btn fade-up" id="btn-core" onclick="openModal('core')">
+        <div class="link-icon" style="background:linear-gradient(135deg,#10b981,#059669);">⚡</div>
+        <div class="link-text">Rowail Core<span>The heart of the campaign</span></div>
+        <div class="link-arrow">→</div>
+      </button>
     </div>
 
     <!-- Footer -->
@@ -642,6 +648,23 @@
         <div class="gallery-frame">
           <img src="rowail_run_pic3.jpeg" alt="On the Run 3">
           <div class="gallery-caption">Real Change</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Modal -->
+  <div class="modal-overlay" id="modal-core">
+    <div class="modal" style="background: linear-gradient(145deg, #15201b, #0f1612);">
+      <button class="modal-close" onclick="closeModal('core')">✕</button>
+      <div style="font-size:2.5rem;margin-bottom:12px;">⚡</div>
+      <h2 style="background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Rowail Core</h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">The heart of the campaign</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-frame" style="transform: rotate(0deg); max-width: 90%; margin: 0 auto;">
+          <img src="rowail_core_pic.jpeg" alt="Rowail Core">
+          <div class="gallery-caption">Core Vision</div>
         </div>
       </div>
     </div>
